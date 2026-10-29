@@ -1,0 +1,3171 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="後谷優太 (Yuta Gotani) のポートフォリオサイトです。ゲーム制作、イベント企画・運営、PCスキルなどを紹介しています。">
+  <title>後谷優太 | Yuta Gotani Portfolio</title>
+
+  <!-- OGP / SNS共有用タグ (X / Facebook / LINE等) -->
+  <meta property="og:title" content="後谷優太 | Yuta Gotani Portfolio">
+  <meta property="og:description" content="後谷優太 (Yuta Gotani) のポートフォリオサイトです。ゲーム制作、イベント企画・運営、PCスキルなどを紹介しています。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://waiGY.github.io/">
+  <meta property="og:image" content="https://waiGY.github.io/profile_cropped.jpg">
+  <meta property="og:site_name" content="後谷優太 ポートフォリオ">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- X (Twitter) Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="後谷優太 | Yuta Gotani Portfolio">
+  <meta name="twitter:description" content="後谷優太 (Yuta Gotani) のポートフォリオサイトです。ゲーム制作、イベント企画・運営、PCスキルなどを紹介しています。">
+  <meta name="twitter:image" content="https://waiGY.github.io/profile_cropped.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CSS Variables & Paper Theme (ペーパー風・暖色系・シンプル)
+       ========================================================================== */
+    :root {
+      /* Paper Backgrounds & Surfaces */
+      --bg-page: #f8f4ec;
+      /* 温かみのある上質紙・エクリュ */
+      --bg-card: #ffffff;
+      /* 紙のカード（クリーンホワイト） */
+      --bg-card-subtle: #f3ece0;
+      /* やや深みのあるペーパー下地 */
+      --border-color: #e5ded2;
+      /* 紙の折り目・枠線 */
+      --border-hover: #c95c34;
+      /* ホバー時の温かいテラコッタ枠線 */
+
+      /* Warm Accent Palette (インク・朱・アンバー) */
+      --primary: #c95c34;
+      /* テラコッタ・朱赤 */
+      --primary-hover: #b24d27;
+      --primary-soft: #fcf1ec;
+      /* ごく淡いテラコッタ下地 */
+      --amber: #b86214;
+      /* 落ち着いたアンバーゴールド */
+      --amber-soft: #fbf3e6;
+      --sage: #4d7c5f;
+      /* 自然なアクセント（オリーブ/セージ） */
+
+      /* Ink & Typography */
+      --text-main: #2b241d;
+      /* 墨色・深みのあるウォームチャコール */
+      --text-muted: #6e6052;
+      /* セピア系グレー */
+      --text-dim: #998c7e;
+      /* 淡いキャメルグレー */
+
+      /* Subtle Paper Shadows */
+      --shadow-sm: 0 1px 3px rgba(60, 42, 25, 0.04);
+      --shadow-card: 0 4px 14px rgba(60, 42, 25, 0.05);
+      --shadow-hover: 0 8px 24px rgba(60, 42, 25, 0.09);
+
+      --font-en: 'Outfit', sans-serif;
+      --font-jp: 'Noto Sans JP', sans-serif;
+
+      --transition: all 0.25s ease;
+      --container-width: 1020px;
+      --header-height: 68px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-jp);
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.75;
+      overflow-x: hidden;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      /* ペーパー風の微細な質感（上質紙・クラフトの風合い） */
+      background-image:
+        radial-gradient(#e5ded3 0.65px, transparent 0.65px),
+        radial-gradient(#ede6db 0.65px, #f8f4ec 0.65px);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .section-title,
+    .work-title,
+    .about-lead {
+      word-break: auto-phrase;
+      line-break: strict;
+      overflow-wrap: break-word;
+    }
+
+    /* 改行制御用ユーティリティ */
+    .nobr {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 769px) {
+      .sp-br {
+        display: none !important;
+      }
+
+      .pc-br {
+        display: inline !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pc-br {
+        display: none !important;
+      }
+
+      .sp-br {
+        display: inline !important;
+      }
+    }
+
+    /* Scroll Progress Bar */
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--primary);
+      width: 0%;
+      z-index: 1001;
+      transition: width 0.1s ease-out;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5.5rem 0;
+      position: relative;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-family: var(--font-en);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--primary);
+      background: var(--primary-soft);
+      border: 1px solid rgba(201, 92, 52, 0.2);
+      padding: 0.25rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       Header & Navigation (Clean Paper Bar)
+       ========================================================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      background: rgba(248, 244, 236, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .site-header.scrolled {
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 2px 10px rgba(60, 42, 25, 0.05);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-en);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-main);
+      letter-spacing: 0.3px;
+    }
+
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-family: var(--font-en);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      position: relative;
+      padding: 0.3rem 0;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.25s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .nav-link.active::after,
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 38px;
+      height: 38px;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      z-index: 1002;
+    }
+
+    .hamburger-icon {
+      width: 22px;
+      height: 2px;
+      background: var(--text-main);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-icon::before,
+    .hamburger-icon::after {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 2px;
+      background: var(--text-main);
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-icon::before {
+      top: -6px;
+    }
+
+    .hamburger-icon::after {
+      bottom: -6px;
+    }
+
+    .menu-toggle.active .hamburger-icon {
+      background: transparent;
+    }
+
+    .menu-toggle.active .hamburger-icon::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger-icon::after {
+      bottom: 0;
+      transform: rotate(-45deg);
+    }
+
+    /* ==========================================================================
+       Hero Section (Simple & Warm Typography)
+       ========================================================================== */
+    .hero {
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      padding-top: calc(var(--header-height) + 1.8rem);
+      padding-bottom: 2.5rem;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 3rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-content {
+      max-width: 100%;
+    }
+
+    /* Hero Quick Profile & Stats Card (Right Column) */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 1.6rem;
+      box-shadow: var(--shadow-card);
+      width: 100%;
+      max-width: 380px;
+      position: relative;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.15rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-card-avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
+
+    .hero-card-info h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.15rem;
+    }
+
+    .hero-card-info p {
+      font-size: 0.78rem;
+      color: var(--primary);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.55rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .hero-stat-box {
+      background: #faf6f0;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 0.65rem 0.4rem;
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-en);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+      display: block;
+    }
+
+    .hero-stat-lbl {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 0.2rem;
+      display: block;
+    }
+
+    .hero-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .hero-card-tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      background: var(--primary-soft);
+      color: var(--text-main);
+      border: 1px solid rgba(201, 92, 52, 0.15);
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .hero-greeting {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      background: var(--primary-soft);
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      border: 1px solid rgba(201, 92, 52, 0.18);
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      background-color: var(--primary);
+      border-radius: 50%;
+    }
+
+    .hero-name-kanji {
+      font-size: clamp(2.6rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-name-en {
+      font-family: var(--font-en);
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-description {
+      font-size: clamp(0.98rem, 1.8vw, 1.12rem);
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      border-radius: 10px;
+      font-family: var(--font-jp);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 3px 10px rgba(201, 92, 52, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(201, 92, 52, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background: #faf6f0;
+      border-color: #d1c5b4;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       About Section (Clean Card Layout)
+       ========================================================================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .about-visual-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.2rem 1.8rem;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+    }
+
+    .about-photo-wrapper {
+      width: 100%;
+      max-width: 250px;
+      height: 290px;
+      margin: 0 auto 1.35rem;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      background: var(--bg-card-subtle);
+    }
+
+    .about-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .about-visual-card:hover .about-photo {
+      transform: scale(1.03);
+    }
+
+    .about-name-kanji {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.2rem;
+    }
+
+    .about-name-kana {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      margin-bottom: 0.6rem;
+    }
+
+    .about-role-tag {
+      display: inline-block;
+      font-family: var(--font-en);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--amber);
+      background: var(--amber-soft);
+      border: 1px solid rgba(184, 98, 20, 0.25);
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+
+    .profile-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: left;
+      background: var(--bg-card-subtle);
+      padding: 1.15rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .meta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px dashed rgba(229, 222, 210, 0.7);
+    }
+
+    .meta-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .meta-label {
+      color: var(--text-dim);
+      font-size: 0.74rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      letter-spacing: 0.3px;
+    }
+
+    .meta-value {
+      color: var(--text-main);
+      font-size: 0.88rem;
+      font-weight: 600;
+      line-height: 1.5;
+      word-break: auto-phrase;
+      overflow-wrap: break-word;
+    }
+
+    .about-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .about-lead {
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+
+    .about-paragraph {
+      color: var(--text-muted);
+      line-height: 1.85;
+      font-size: 0.96rem;
+    }
+
+    /* Hobby Highlight Box */
+    .hobby-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      box-shadow: var(--shadow-sm);
+      margin-top: 0.35rem;
+    }
+
+    .hobby-card h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hobby-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* About Pillars (Fills right-side gap) */
+    .about-pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+
+    .pillar-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      box-shadow: 0 1px 4px rgba(60, 42, 25, 0.04);
+      transition: var(--transition);
+    }
+
+    .pillar-item:hover {
+      border-color: #d1c5b4;
+      transform: translateY(-2px);
+    }
+
+    .pillar-icon {
+      font-size: 1.15rem;
+      line-height: 1;
+      padding-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .pillar-item h5 {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.2rem;
+    }
+
+    .pillar-item p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       Skills Section (Clean Editorial Meters)
+       ========================================================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 960px) {
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card);
+      border-color: #d1c5b4;
+    }
+
+    .skill-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .skill-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .icon-word {
+      background: #eef4fc;
+      color: #1e5bb5;
+    }
+
+    .icon-excel {
+      background: #edf7f0;
+      color: #1a7f37;
+    }
+
+    .icon-powerpoint {
+      background: #fdf0eb;
+      color: #c95c34;
+    }
+
+    .icon-gaming {
+      background: #fbf3e6;
+      color: #b86214;
+    }
+
+    .icon-event {
+      background: #fdf2f2;
+      color: #dc2626;
+    }
+
+    .icon-comm {
+      background: #f3f0ff;
+      color: #7c3aed;
+    }
+
+    .skill-title-group h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .skill-title-group .skill-cat {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      font-family: var(--font-en);
+    }
+
+    /* Rating Stars & Bar */
+    .skill-rating-container {
+      margin-bottom: 1rem;
+    }
+
+    .stars-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.45rem;
+    }
+
+    .stars-display {
+      display: flex;
+      gap: 3px;
+      font-size: 1.15rem;
+    }
+
+    .star-filled {
+      color: var(--amber);
+    }
+
+    .star-empty {
+      color: #ded6cb;
+    }
+
+    .rating-score {
+      font-family: var(--font-en);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    .skill-bar-bg {
+      width: 100%;
+      height: 6px;
+      background: var(--bg-card-subtle);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: var(--primary);
+      width: 0%;
+      transition: width 1s ease-out;
+    }
+
+    .skill-card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+      background: var(--bg-card-subtle);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+
+    /* ==========================================================================
+       Works Section (Simple Paper Grid)
+       ========================================================================== */
+    .works-filter-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 1.85rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      padding: 0.45rem 1.25rem;
+      border-radius: 25px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-btn:hover {
+      background: #faf6f0;
+      color: var(--text-main);
+      border-color: #d1c5b4;
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px rgba(201, 92, 52, 0.25);
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .work-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ゲーム制作カード（エメラルドティール枠） */
+    .work-card[data-category="game"] {
+      border: 2px solid #0d9488;
+      background: #ffffff;
+    }
+
+    .work-card[data-category="game"]:hover {
+      border-color: #047857;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(13, 148, 136, 0.22);
+    }
+
+    .work-card[data-category="game"] .work-header-box {
+      background: #f0fdf9;
+      border-bottom: 1px solid #ccfbf1;
+    }
+
+    .work-card[data-category="game"] .work-cat-label {
+      color: #0f766e;
+      font-weight: 700;
+    }
+
+    /* イベント実績カード（テラコッタ・ウォーム枠） */
+    .work-card[data-category="event"] {
+      border: 2px solid #c95c34;
+      background: #ffffff;
+    }
+
+    .work-card[data-category="event"]:hover {
+      border-color: #a8431e;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(201, 92, 52, 0.22);
+    }
+
+    .work-card[data-category="event"] .work-header-box {
+      background: #fdf5f0;
+      border-bottom: 1px solid #fae2d7;
+    }
+
+    .work-card[data-category="event"] .work-cat-label {
+      color: #b04923;
+      font-weight: 700;
+    }
+
+    /* その他実績カード（アンバー・ゴールド枠） */
+    .work-card[data-category="other"] {
+      border: 2px solid #d97706;
+      background: #ffffff;
+    }
+
+    .work-card[data-category="other"]:hover {
+      border-color: #b45309;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(217, 119, 6, 0.22);
+    }
+
+    .work-card[data-category="other"] .work-header-box {
+      background: #fffbeb;
+      border-bottom: 1px solid #fef3c7;
+    }
+
+    .work-card[data-category="other"] .work-cat-label {
+      color: #b45309;
+      font-weight: 700;
+    }
+
+    /* Game Thumbnails */
+    .work-thumb-wrapper {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+      background: #f4eee3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #ccfbf1;
+    }
+
+    .work-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+
+    .work-card:hover .work-thumb-img {
+      transform: scale(1.05);
+    }
+
+    .work-thumb-wrapper.contain-fit {
+      background: #b3a89d;
+    }
+
+    .work-thumb-wrapper.contain-fit .work-thumb-img {
+      object-fit: contain;
+      padding: 0.6rem;
+    }
+
+    .work-thumb-wrapper.contain-fit-white {
+      background: #ffffff;
+    }
+
+    .work-thumb-wrapper.contain-fit-white .work-thumb-img {
+      object-fit: contain;
+      padding: 1.25rem 1rem;
+    }
+
+    /* Event & Other Work Visual Banner (Eliminates height imbalance & empty gaps) */
+    .work-event-banner {
+      width: 100%;
+      height: 84px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.35rem;
+      border-bottom: 1px solid var(--border-color);
+      transition: background 0.3s ease;
+    }
+
+    .banner-theme-indie {
+      background: linear-gradient(135deg, #fdf5f0 0%, #faede4 100%);
+      border-color: #fae2d7;
+    }
+    .banner-theme-expo {
+      background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+      border-color: #fed7aa;
+    }
+    .banner-theme-presentation {
+      background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+      border-color: #fecaca;
+    }
+    .banner-theme-academic {
+      background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+      border-color: #ddd6fe;
+    }
+    .banner-theme-esports {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border-color: #bbf7d0;
+    }
+    .banner-theme-campus {
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border-color: #bfdbfe;
+    }
+    .banner-theme-work {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border-color: #fde68a;
+    }
+
+    .event-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .event-banner-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(60, 42, 25, 0.08);
+      flex-shrink: 0;
+    }
+
+    .event-banner-year {
+      font-family: var(--font-en);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+    }
+
+    .work-header-box {
+      padding: 0.85rem 1.35rem 0.65rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .work-cat-label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      font-family: var(--font-en);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .work-body {
+      padding: 0.9rem 1.35rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    /* Task / Highlight Tags */
+    .work-task-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .work-task-tag {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.5rem;
+      background: #faf6f0;
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* Role Badges (Muted Paper Schemes) */
+    .role-badge-container {
+      margin-bottom: 0.6rem;
+    }
+
+    .role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .badge-leader {
+      background: #fdf3e7;
+      color: #b86214;
+      border: 1px solid #ebd3b6;
+    }
+
+    .badge-presenter {
+      background: #fbf0ec;
+      color: #c95c34;
+      border: 1px solid #f2cec2;
+    }
+
+    .badge-exhibition {
+      background: #f6edf5;
+      color: #9333ea;
+      border: 1px solid #e9d5eb;
+    }
+
+    .badge-staff {
+      background: #eef2f6;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+    }
+
+    .badge-dev {
+      background: #ecf8f3;
+      color: #0f766e;
+      border: 1px solid #cce8de;
+    }
+
+    .badge-setup {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+
+    .work-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+      line-height: 1.45;
+      transition: color 0.2s ease;
+      word-break: auto-phrase;
+      overflow-wrap: break-word;
+    }
+
+    .work-card:hover .work-title {
+      color: var(--primary);
+    }
+
+    .work-summary {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .work-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      border-top: 1px solid #f0e8dc;
+      padding-top: 0.85rem;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .work-view-action {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Modal for Work Detail */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(43, 36, 29, 0.6);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-container {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 640px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2.2rem;
+      position: relative;
+      box-shadow: 0 15px 40px rgba(43, 36, 29, 0.15);
+      transform: translateY(15px);
+      transition: transform 0.25s ease;
+    }
+
+    .modal-overlay.active .modal-container {
+      transform: translateY(0);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #f4ece0;
+      border: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .modal-close-btn:hover {
+      background: #e8ded0;
+    }
+
+    .modal-image-wrapper {
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border-color);
+      background: #faf6f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .modal-image-wrapper.contain-fit {
+      background: #b3a89d;
+    }
+
+    .modal-image-wrapper.contain-fit .modal-image {
+      object-fit: contain;
+      padding: 0.8rem;
+    }
+
+    .modal-image-wrapper.contain-fit-white {
+      background: #ffffff;
+    }
+
+    .modal-image-wrapper.contain-fit-white .modal-image {
+      object-fit: contain;
+      padding: 1.5rem 1rem;
+    }
+
+    .modal-category {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.35rem;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 1.2rem;
+      line-height: 1.35;
+      padding-right: 2rem;
+    }
+
+    .modal-description {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      white-space: pre-line;
+      background: #faf6f0;
+      padding: 1.2rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .modal-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.1rem;
+    }
+
+    .modal-meta-item h5 {
+      font-size: 0.74rem;
+      color: var(--text-dim);
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+    }
+
+    .modal-meta-item p {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       Footer & Scroll to Top
+       ========================================================================== */
+    .site-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2.5rem 0;
+      text-align: center;
+      background: #f4eee3;
+    }
+
+    .footer-logo {
+      font-family: var(--font-en);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-card);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: var(--transition);
+    }
+
+    .scroll-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* ==========================================================================
+       Scroll Animations (Subtle Fade In)
+       ========================================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       Responsive Media Queries
+       ========================================================================== */
+    @media (max-width: 920px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero-visual {
+        order: 2;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 3rem 0 2.5rem;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        gap: 1.25rem;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 4px 12px rgba(60, 42, 25, 0.08);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-menu.open {
+        transform: translateY(0);
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="progressBar"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="#hero" class="logo" aria-label="トップページへ戻る">
+        <div class="logo-badge">YG</div>
+        <span>Yuta Gotani</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開閉">
+        <div class="hamburger-icon"></div>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#works" class="nav-link">Works</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================
+         HERO SECTION
+         ========================================== -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-layout">
+          <div class="hero-content">
+            <div class="hero-greeting reveal">
+              <span class="pulse-dot"></span>
+              <span>Portfolio</span>
+            </div>
+            <h1 class="hero-name-kanji reveal">後谷 優太</h1>
+            <div class="hero-name-en reveal">YUTA GOTANI</div>
+            <p class="hero-description reveal">
+              <span class="nobr">ゲームやゲーム大会鑑賞</span>への情熱を原動力に、<span class="nobr">ゲーム制作</span>や多彩な<span
+                class="nobr">インディーゲームイベント</span>・<br class="pc-br">
+              <span class="nobr">eスポーツエリアの運営・リーダー業務</span>に取り組んでいます。<br class="pc-br">
+              丁寧な<span class="nobr">ドキュメント作成</span>と現場での連携力を活かして、価値ある体験を創り出します。
+            </p>
+            <div class="hero-buttons reveal">
+              <a href="#works" class="btn btn-primary">
+                <span>実績を見る</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="#about" class="btn btn-secondary">
+                <span>自己紹介</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <img src="profile.jpg" alt="後谷優太" class="hero-card-avatar">
+                <div class="hero-card-info">
+                  <h3>後谷 優太</h3>
+                  <p>Game Dev &amp; Event Operations</p>
+                </div>
+              </div>
+              <div class="hero-stats-grid">
+                <div class="hero-stat-box">
+                  <span class="hero-stat-num">3</span>
+                  <span class="hero-stat-lbl">ゲーム制作</span>
+                </div>
+                <div class="hero-stat-box">
+                  <span class="hero-stat-num">11+</span>
+                  <span class="hero-stat-lbl">イベント実績</span>
+                </div>
+                <div class="hero-stat-box">
+                  <span class="hero-stat-num">2028</span>
+                  <span class="hero-stat-lbl">卒業見込み</span>
+                </div>
+              </div>
+              <div class="hero-card-tags">
+                <span class="hero-card-tag">Unity / C#</span>
+                <span class="hero-card-tag">イベントリーダー</span>
+                <span class="hero-card-tag">仕様書・マニュアル作成</span>
+                <span class="hero-card-tag">登壇プレゼン</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ABOUT SECTION (自己紹介)
+         ========================================== -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">自己紹介</h2>
+          <p class="section-subtitle">私のプロフィール、バックグラウンド、そして興味関心について</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Visual Profile Card -->
+          <div class="about-visual-card reveal">
+            <div class="about-photo-wrapper">
+              <img src="profile.jpg" alt="後谷優太" class="about-photo">
+            </div>
+            <h3 class="about-name-kanji">後谷 優太</h3>
+            <p class="about-name-kana">ゴウタニ ユウタ / Yuta Gotani</p>
+            <div class="about-role-tag">Game Creator &amp; Event Staff</div>
+
+            <div class="profile-meta-list">
+              <div class="meta-row">
+                <span class="meta-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                  </svg>
+                  学校・学部
+                </span>
+                <span class="meta-value">京都コンピュータ学院<br>デジタルゲーム学系 ゲーム開発学部</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  学年 / 卒業
+                </span>
+                <span class="meta-value">2回生 (2028年3月卒業見込み)</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  拠点
+                </span>
+                <span class="meta-value">日本 (京都・関西)</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  主な活動
+                </span>
+                <span class="meta-value">ゲーム開発 / イベント運営</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                    </polygon>
+                  </svg>
+                  強み
+                </span>
+                <span class="meta-value">資料作成 / リーダーシップ</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description Text & Highlights -->
+          <div class="about-details reveal">
+            <p class="about-lead">
+              <span class="nobr">京都コンピュータ学院</span> <span class="nobr">デジタルゲーム学系ゲーム開発学部</span>で学びながら、<br class="pc-br">
+              <span class="nobr">「プレイヤーを熱中させるゲーム」</span>の制作と、<span class="nobr">「人とゲームが繋がる最高の場」</span>を創る<br
+                class="pc-br">
+              <span class="nobr">イベント運営</span>に情熱を注いでいます。
+            </p>
+            <p class="about-paragraph">
+              <span class="nobr">BitSummitをはじめとする</span>大規模な<span class="nobr">インディーゲームイベント</span>や万博関連催事、<span
+                class="nobr">eスポーツイベント</span>での<span class="nobr">リーダー経験</span>を通じて、状況に応じた臨機応変な<span
+                class="nobr">チームマネジメント</span>と丁寧なコミュニケーションを培ってきました。<br class="pc-br">
+              Wordでの緻密な仕様書・マニュアル作成や、<span class="nobr">Excel・PowerPoint</span>を活用した情報共有と<span
+                class="nobr">プレゼンテーション</span>にも自信があります。
+            </p>
+
+            <!-- Hobby Box -->
+            <div class="hobby-card">
+              <h4>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary)">
+                  <rect x="2" y="6" width="20" height="12" rx="6"></rect>
+                  <line x1="6" y1="12" x2="10" y2="12"></line>
+                  <line x1="8" y1="10" x2="8" y2="14"></line>
+                  <line x1="15" y1="13" x2="15.01" y2="13"></line>
+                  <line x1="18" y1="11" x2="18.01" y2="11"></line>
+                </svg>
+                趣味：ゲーム・ゲーム大会鑑賞・麻雀
+              </h4>
+              <p>
+                アクションやFPSといったゲームを深く楽しむとともに、国内外のハイレベルな<span class="nobr">eスポーツ大会</span>やコミュニティ大会の観戦を愛好しています。<br
+                  class="pc-br">
+                プレイヤーの心理戦や熱戦を支える演出・進行・トーナメント運営の手法を分析し、自身の制作やイベント現場へ還元しています。
+              </p>
+            </div>
+
+            <!-- Core Focus Pillars (Fills right-side height gap) -->
+            <div class="about-pillars">
+              <div class="pillar-item">
+                <span class="pillar-icon">🎯</span>
+                <div>
+                  <h5>緻密なドキュメンテーション</h5>
+                  <p>運営マニュアルや台本、仕様書を論理的に構成し、現場の確実な情報共有を支えます。</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-icon">🤝</span>
+                <div>
+                  <h5>現場判断力・リーダーシップ</h5>
+                  <p>万博や展示会、eスポーツの現場で状況を素早く判断し、スタッフ間連携をリードします。</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <span class="pillar-icon">⚡</span>
+                <div>
+                  <h5>熱中を生む体験の探究</h5>
+                  <p>プレイヤー目線での制作と大会演出の研究を、Unity開発と現場づくりに還元します。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SKILLS SECTION (スキル)
+         ========================================== -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Capabilities</span>
+          <h2 class="section-title">スキル &amp; ツール</h2>
+          <p class="section-subtitle">実務・制作・イベント運営で実践活用しているスキルセットです</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Word (Ward) ★★★★☆ -->
+          <div class="skill-card reveal">
+            <div class="skill-card-header">
+              <div class="skill-icon icon-word">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <div class="skill-title-group">
+                <h3>Word (Ward)</h3>
+                <span class="skill-cat">Document &amp; Manual</span>
+              </div>
+            </div>
+
+            <div class="skill-rating-container">
+              <div class="stars-row">
+                <div class="stars-display" aria-label="評価: 5段階中4">
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-empty">★</span>
+                </div>
+                <span class="rating-score">4.0 / 5.0</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-progress="80%"></div>
+              </div>
+            </div>
+
+            <p class="skill-card-desc">
+              イベント運営マニュアル、進行台本などの論理的で読みやすい文書作成。階層構造やスタイルを活用した確実なドキュメンテーションが可能です。
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">運営マニュアル</span>
+              <span class="skill-tag">進行台本</span>
+            </div>
+          </div>
+
+          <!-- Excel ★★★☆☆ -->
+          <div class="skill-card reveal">
+            <div class="skill-card-header">
+              <div class="skill-icon icon-excel">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="3" y1="15" x2="21" y2="15"></line>
+                  <line x1="9" y1="3" x2="9" y2="21"></line>
+                  <line x1="15" y1="3" x2="15" y2="21"></line>
+                </svg>
+              </div>
+              <div class="skill-title-group">
+                <h3>Excel</h3>
+                <span class="skill-cat">Schedule &amp; Data</span>
+              </div>
+            </div>
+
+            <div class="skill-rating-container">
+              <div class="stars-row">
+                <div class="stars-display" aria-label="評価: 5段階中3">
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-empty">★</span>
+                  <span class="star-empty">★</span>
+                </div>
+                <span class="rating-score">3.0 / 5.0</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-progress="60%"></div>
+              </div>
+            </div>
+
+            <p class="skill-card-desc">
+              イベントシフト管理、機材チェックリスト、タイムスケジュール作成、トーナメント表集計など基本関数（SUM, IF, VLOOKUP等）を活用したデータ整理に対応。
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">基本関数</span>
+              <span class="skill-tag">スケジュール管理</span>
+              <span class="skill-tag">シフト表作成</span>
+            </div>
+          </div>
+
+          <!-- PowerPoint ★★★☆☆ -->
+          <div class="skill-card reveal">
+            <div class="skill-card-header">
+              <div class="skill-icon icon-powerpoint">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 3h20v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3z"></path>
+                  <path d="M8 21h8"></path>
+                  <path d="M12 17v4"></path>
+                </svg>
+              </div>
+              <div class="skill-title-group">
+                <h3>PowerPoint</h3>
+                <span class="skill-cat">Presentation &amp; Pitch</span>
+              </div>
+            </div>
+
+            <div class="skill-rating-container">
+              <div class="stars-row">
+                <div class="stars-display" aria-label="評価: 5段階中3">
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-empty">★</span>
+                  <span class="star-empty">★</span>
+                </div>
+                <span class="rating-score">3.0 / 5.0</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-progress="60%"></div>
+              </div>
+            </div>
+
+            <p class="skill-card-desc">
+              商工会議所での登壇発表やイベント説明で活用。直感的に伝わる見やすい構成と要点が瞬時に把握できるスライドを作成します。
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">プレゼン発表</span>
+              <span class="skill-tag">スライド資料制作</span>
+            </div>
+          </div>
+
+          <!-- Game Creation & Tech -->
+          <div class="skill-card reveal">
+            <div class="skill-card-header">
+              <div class="skill-icon icon-gaming">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <div class="skill-title-group">
+                <h3>Game Dev &amp; Tech</h3>
+                <span class="skill-cat">Unity / C#</span>
+              </div>
+            </div>
+
+            <div class="skill-rating-container">
+              <div class="stars-row">
+                <div class="stars-display" aria-label="評価: 5段階中3">
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-empty">★</span>
+                  <span class="star-empty">★</span>
+                </div>
+                <span class="rating-score">3.0 / 5.0</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-progress="60%"></div>
+              </div>
+            </div>
+
+            <p class="skill-card-desc">
+              UnityおよびC#を用いたゲーム制作を実践。プレイヤーの操作フィードバック、デバイス連携、物理アクションの実装に取り組んでいます。
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Unity</span>
+              <span class="skill-tag">C#</span>
+              <span class="skill-tag">ゲームデザイン</span>
+            </div>
+          </div>
+
+          <!-- Event Operations & Leadership ★★★★☆ -->
+          <div class="skill-card reveal">
+            <div class="skill-card-header">
+              <div class="skill-icon icon-event">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                  <line x1="4" y1="22" x2="4" y2="15"></line>
+                </svg>
+              </div>
+              <div class="skill-title-group">
+                <h3>Event Leadership</h3>
+                <span class="skill-cat">Management &amp; Direction</span>
+              </div>
+            </div>
+
+            <div class="skill-rating-container">
+              <div class="stars-row">
+                <div class="stars-display" aria-label="評価: 5段階中4">
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-empty">★</span>
+                </div>
+                <span class="rating-score">4.0 / 5.0</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-progress="80%"></div>
+              </div>
+            </div>
+
+            <p class="skill-card-desc">
+              eスポーツ就職イベントや展示会でのリーダー経験。スタッフへの役割分担、タイムスケジュール進行、突発的な状況への臨機応変な統括が可能です。
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">エリア統括</span>
+              <span class="skill-tag">動線整理</span>
+              <span class="skill-tag">チーム指示</span>
+            </div>
+          </div>
+
+          <!-- Communication & Hospitality ★★★★☆ -->
+          <div class="skill-card reveal">
+            <div class="skill-card-header">
+              <div class="skill-icon icon-comm">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <div class="skill-title-group">
+                <h3>Communication</h3>
+                <span class="skill-cat">Hospitality &amp; Public</span>
+              </div>
+            </div>
+
+            <div class="skill-rating-container">
+              <div class="stars-row">
+                <div class="stars-display" aria-label="評価: 5段階中4">
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-filled">★</span>
+                  <span class="star-empty">★</span>
+                </div>
+                <span class="rating-score">4.0 / 5.0</span>
+              </div>
+              <div class="skill-bar-bg">
+                <div class="skill-bar-fill" data-progress="80%"></div>
+              </div>
+            </div>
+
+            <p class="skill-card-desc">
+              万博京都ゾーンやBitSummit等での国内外ゲストへの丁寧な案内、商工会議所でのプレゼン・質疑応答など、相手に寄り添った的確な対話が得意です。
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">来場者対応</span>
+              <span class="skill-tag">登壇スピーチ</span>
+              <span class="skill-tag">ホスピタリティ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         WORKS SECTION (実績)
+         ========================================== -->
+    <section class="works" id="works">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Showcase</span>
+          <h2 class="section-title">活動・制作実績</h2>
+          <p class="section-subtitle">手がけてきたオリジナルゲーム制作プロジェクトおよび多数のイベント実績です</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="works-filter-nav reveal">
+          <button class="filter-btn active" data-filter="all">すべて (All: 16)</button>
+          <button class="filter-btn" data-filter="game">ゲーム制作 (3)</button>
+          <button class="filter-btn" data-filter="event">イベント実績 (11)</button>
+          <button class="filter-btn" data-filter="other">その他 (2)</button>
+        </div>
+
+        <div class="works-grid">
+          <!-- ==========================================
+               GAME DEV PROJECTS (3 PROJECTS)
+               ========================================== -->
+
+          <!-- Game 1: トレーニンジャ -->
+          <div class="work-card reveal" data-category="game" onclick="openWorkModal('game-traininja')">
+            <div class="work-thumb-wrapper contain-fit">
+              <img src="traininja.png" alt="トレーニンジャ" class="work-thumb-img">
+            </div>
+            <div class="work-header-box">
+              <span class="work-cat-label">Game Development</span>
+              <span class="role-badge badge-dev">ゲーム開発</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">トレーニンジャ</span></h3>
+              <p class="work-summary">
+                忍者の修行を題材にタップやスライドで的を壊し、高得点を目指すスマートフォン用ゲーム
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">Unity</span>
+                <span class="work-task-tag">C#</span>
+                <span class="work-task-tag">スマホ操作実装</span>
+              </div>
+              <div class="work-footer">
+                <span>Unity / C#</span>
+                <span class="work-view-action">
+                  詳細を見る
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Game 2: RISOLUTION -->
+          <div class="work-card reveal" data-category="game" onclick="openWorkModal('game-risolution')">
+            <div class="work-thumb-wrapper">
+              <img src="risolution.png" alt="RISOLUTION" class="work-thumb-img">
+            </div>
+            <div class="work-header-box">
+              <span class="work-cat-label">Game Development</span>
+              <span class="role-badge badge-dev">ゲーム開発</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">RISOLUTION</span></h3>
+              <p class="work-summary">
+                オブジェクトの解像度を変え、ギミックを攻略しゴールを目指すパズルアクションアドベンチャーゲーム</p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">Unity</span>
+                <span class="work-task-tag">解像度ギミック</span>
+                <span class="work-task-tag">パズル設計</span>
+              </div>
+              <div class="work-footer">
+                <span>Unity</span>
+                <span class="work-view-action">
+                  詳細を見る
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Game 3: リコイル フライト -->
+          <div class="work-card reveal" data-category="game" onclick="openWorkModal('game-recoilflight')">
+            <div class="work-thumb-wrapper contain-fit-white">
+              <img src="recoil_flight.png" alt="リコイル フライト" class="work-thumb-img">
+            </div>
+            <div class="work-header-box">
+              <span class="work-cat-label">Game Development</span>
+              <span class="role-badge badge-dev">ゲーム開発</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">リコイル フライト</span></h3>
+              <p class="work-summary">
+                射撃の「反動（リコイル）」を推進力にして飛行し、障害物を避けながらゴールを目指すアクションゲーム
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">Unity</span>
+                <span class="work-task-tag">2D Physics</span>
+                <span class="work-task-tag">リコイル推進</span>
+              </div>
+              <div class="work-footer">
+                <span>Unity</span>
+                <span class="work-view-action">
+                  詳細を見る
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==========================================
+               EVENT WORKS (11 EVENTS)
+               ========================================== -->
+
+          <!-- Event 1: BitSummit the 13th -->
+          <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-bitsummit13')">
+            <div class="work-event-banner banner-theme-indie">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c95c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+                <span class="event-banner-year">2025.07</span>
+              </div>
+              <span class="role-badge badge-staff">ボランティアスタッフ</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">BitSummit the 13th</span></h3>
+              <p class="work-summary">
+                日本最大級のインディーゲームの祭典にて、会場運営や出展者・来場者の案内誘導を担当。熱気ある大規模展示会を円滑に支えました。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">会場案内・受付</span>
+                <span class="work-task-tag">出展ブース混雑緩和</span>
+                <span class="work-task-tag">動線確保</span>
+              </div>
+              <div class="work-footer">
+                <span>会場運営 / 案内誘導</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 2: 大阪・関西万博関西パビリオン京都ゾーン -->
+          <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-expo-kyoto')">
+            <div class="work-event-banner banner-theme-expo">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </div>
+                <span class="event-banner-year">2025</span>
+              </div>
+              <span class="role-badge badge-staff">ボランティアスタッフ</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">大阪・関西万博</span> <span class="nobr">関西パビリオン</span> <span
+                  class="nobr">京都ゾーン</span></h3>
+              <p class="work-summary">
+                世界中から注目が集まる大阪・関西万博の京都ゾーンにてボランティアスタッフとして参加。京都の魅力発信と来場者へのホスピタリティを発揮しました。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">展示ゲーム操作案内</span>
+                <span class="work-task-tag">来場者順路誘導</span>
+                <span class="work-task-tag">多世代対応</span>
+              </div>
+              <div class="work-footer">
+                <span>国際博覧会 / 来場者対応</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 3: 京都商工会議所 2025-11/17 -->
+          <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-kyoto-cci')">
+            <div class="work-event-banner banner-theme-presentation">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                    <line x1="12" y1="19" x2="12" y2="23"></line>
+                    <line x1="8" y1="23" x2="16" y2="23"></line>
+                  </svg>
+                </div>
+                <span class="event-banner-year">2025.11</span>
+              </div>
+              <span class="role-badge badge-presenter">資料作成・プレゼンター</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">京都商工会議所</span> <span class="nobr">(2025-11/17)</span></h3>
+              <p class="work-summary">
+                京都商工会議所の場において、Word・PowerPointを用いた発表資料の構成・作成を一手に担い、当日のプレゼンターとして登壇発表を行いました。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">Word原稿構成案作成</span>
+                <span class="work-task-tag">PowerPointスライド制作</span>
+                <span class="work-task-tag">登壇スピーチ</span>
+              </div>
+              <div class="work-footer">
+                <span>2025.11 / 資料作成・登壇</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 4: EEKANJI NO GAME GAKKAI 2025 -->
+          <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-eekanji')">
+            <div class="work-event-banner banner-theme-academic">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                </div>
+                <span class="event-banner-year">2025</span>
+              </div>
+              <span class="role-badge badge-staff">ボランティアスタッフ</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">EEKANJI NO</span> <span class="nobr">GAME GAKKAI 2025</span>
+              </h3>
+              <p class="work-summary">
+                ゲーム研究・開発の知見が共有される「ええ感じのゲーム学会」にてスタッフ参加。登壇進行のアシストや会場運営をサポートしました。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">学会登壇進行アシスト</span>
+                <span class="work-task-tag">会場受付・マイク補助</span>
+                <span class="work-task-tag">運営サポート</span>
+              </div>
+              <div class="work-footer">
+                <span>2025年 / ゲーム学会運営</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 5: ゲームパビリオンjp 2026-03 -->
+          <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-gamepavilion')">
+            <div class="work-event-banner banner-theme-indie">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c95c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="6" width="20" height="12" rx="6"></rect>
+                    <line x1="6" y1="12" x2="10" y2="12"></line>
+                    <line x1="8" y1="10" x2="8" y2="14"></line>
+                    <circle cx="15.5" cy="12" r="1"></circle>
+                    <circle cx="18" cy="10" r="1"></circle>
+                  </svg>
+                </div>
+                <span class="event-banner-year">2026.03</span>
+              </div>
+              <span class="role-badge badge-staff">イベントスタッフ</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">ゲームパビリオンjp</span> <span class="nobr">2026-03</span></h3>
+              <p class="work-summary">
+                関西の大規模インディーゲーム展示会にて運営スタッフを担当。出展ブースの設営補助や来場者動線の整理を行い、安心快適な展示環境を支えました。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">出展ブース設営補助</span>
+                <span class="work-task-tag">来場者動線整理</span>
+                <span class="work-task-tag">会場内巡回</span>
+              </div>
+              <div class="work-footer">
+                <span>2026.03 / ブース設営・運営</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 6: 京都ジョブ博2026 eスポーツエリア -->
+          <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-kyoto-job')">
+            <div class="work-event-banner banner-theme-esports">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="6 9 12 15 18 9"></polygon>
+                    <path d="M12 2v13"></path>
+                    <path d="M5 20h14"></path>
+                  </svg>
+                </div>
+                <span class="event-banner-year">2026</span>
+              </div>
+              <span class="role-badge badge-leader">リーダー</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">京都ジョブ博2026</span> <span class="nobr">eスポーツエリア</span></h3>
+              <p class="work-summary">
+                就職イベント内のeスポーツエリアにてリーダーに抜擢。スタッフへの指示出し、体験ブースの統括、対戦進行管理を主導し高評価を獲得しました。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">エリア統括・指揮</span>
+                <span class="work-task-tag">対戦進行管理</span>
+                <span class="work-task-tag">スタッフ指示</span>
+              </div>
+              <div class="work-footer">
+                <span>2026年 / エリア統括・リーダー</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 7: (学内)フレッシュマンデイキャンプ -->
+          <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-freshman')">
+            <div class="work-event-banner banner-theme-campus">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <span class="event-banner-year">学内行事</span>
+              </div>
+              <span class="role-badge badge-staff">イベントスタッフ</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">(学内)</span> <span class="nobr">フレッシュマンデイキャンプ</span></h3>
+              <p class="work-summary">
+                新入生を迎える学内オリエンテーション行事「フレッシュマンデイキャンプ」にてスタッフとして活動。チームビルディング企画の進行補助や新入生のサポートを行いました。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">新入生サポート</span>
+                <span class="work-task-tag">チームビルディング補助</span>
+                <span class="work-task-tag">進行アシスタント</span>
+              </div>
+              <div class="work-footer">
+                <span>学内行事 / 進行アシスタント</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 8: BitSummit the 14th PSブース -->
+          <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-bitsummit14-ps')">
+            <div class="work-event-banner banner-theme-indie">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c95c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="6" width="20" height="12" rx="6"></rect>
+                    <line x1="6" y1="12" x2="10" y2="12"></line>
+                    <line x1="8" y1="10" x2="8" y2="14"></line>
+                  </svg>
+                </div>
+                <span class="event-banner-year">2026.07</span>
+              </div>
+              <span class="role-badge badge-staff">ボランティアスタッフ</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">BitSummit the 14th</span> <span class="nobr">PSブース</span></h3>
+              <p class="work-summary">
+                BitSummit the 14th のPlayStationブースにて試遊整理や操作説明、待機列コントロールを担当。世界的ブランドのブース運営を支えました。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">試遊案内・操作説明</span>
+                <span class="work-task-tag">待機列コントロール</span>
+                <span class="work-task-tag">来場者ホスピタリティ</span>
+              </div>
+              <div class="work-footer">
+                <span>PlayStationブース / 試遊案内</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 9: 夏の京都ジョブ博2026 eスポーツエリア -->
+          <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-summer-kyoto-job')">
+            <div class="work-event-banner banner-theme-esports">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                  </svg>
+                </div>
+                <span class="event-banner-year">2026 夏</span>
+              </div>
+              <span class="role-badge badge-leader">リーダー</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">夏の京都ジョブ博2026</span> <span class="nobr">eスポーツエリア</span></h3>
+              <p class="work-summary">
+                前回に引き続きeスポーツエリアのリーダーとして再任。前回の課題を改善したタイムスケジューリングとスタッフ配置により、さらに質の高いエリア運営を完遂。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">リーダー再任</span>
+                <span class="work-task-tag">タイムスケジュール改善</span>
+                <span class="work-task-tag">スタッフ配置最適化</span>
+              </div>
+              <div class="work-footer">
+                <span>2026年 夏 / リーダー</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 10: OPEN GAME FEST 2026 -->
+          <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-opengamefest')">
+            <div class="work-event-banner banner-theme-campus">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <span class="event-banner-year">2026</span>
+              </div>
+              <span class="role-badge badge-exhibition">作品展示・スタッフ</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">OPEN GAME FEST</span> <span class="nobr">2026</span></h3>
+              <p class="work-summary">
+                制作ゲーム作品の出展・一般来場者向け試遊ブースの運営を行うとともに、イベント全体の運営スタッフとしても活動。プレイヤーの生の声を集めました。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">オリジナル作品出展</span>
+                <span class="work-task-tag">試遊ブース運営</span>
+                <span class="work-task-tag">ユーザーフィードバック収集</span>
+              </div>
+              <div class="work-footer">
+                <span>作品出展 / イベント運営</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 11: OSAKA INDIE GAMES SUMMIT 2026 -->
+          <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-osaka-indie')">
+            <div class="work-event-banner banner-theme-indie">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c95c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polygon points="12 8 8 12 12 16 16 12 12 8"></polygon>
+                  </svg>
+                </div>
+                <span class="event-banner-year">2026</span>
+              </div>
+              <span class="role-badge badge-staff">ボランティアスタッフ</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">OSAKA INDIE</span> <span class="nobr">GAMES SUMMIT 2026</span>
+              </h3>
+              <p class="work-summary">
+                大阪で開催された大型インディーゲームサミットにて、ブースサポートや参加クリエイター・来場者の円滑な交流を支えるボランティアとして貢献しました。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">出展ブースサポート</span>
+                <span class="work-task-tag">クリエイター交流支援</span>
+                <span class="work-task-tag">サミット運営</span>
+              </div>
+              <div class="work-footer">
+                <span>2026年 / サミット運営支援</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==========================================
+               OTHER WORKS (2 ITEMS)
+               ========================================== -->
+
+          <!-- Other 1: 太秦映画村アルバイト -->
+          <div class="work-card reveal" data-category="other" onclick="openWorkModal('other-eigamura')">
+            <div class="work-event-banner banner-theme-work">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </div>
+                <span class="event-banner-year">現在勤務中</span>
+              </div>
+              <span class="role-badge badge-staff">イベント運営スタッフ</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">太秦映画村アルバイト</span></h3>
+              <p class="work-summary">
+                東映太秦映画村にて、イベント運営スタッフとして来場者対応や各種イベントの進行補助、安全管理などに現在も従事しております。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">来場者ホスピタリティ</span>
+                <span class="work-task-tag">イベント進行補助</span>
+                <span class="work-task-tag">場内安全管理</span>
+              </div>
+              <div class="work-footer">
+                <span>アルバイト (現在勤務中) / イベント運営</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other 2: KBSホールアルバイト -->
+          <div class="work-card reveal" data-category="other" onclick="openWorkModal('other-kbshall')">
+            <div class="work-event-banner banner-theme-work">
+              <div class="event-banner-left">
+                <div class="event-banner-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+                <span class="event-banner-year">現在勤務中</span>
+              </div>
+              <span class="role-badge badge-setup">ステージ設営</span>
+            </div>
+            <div class="work-body">
+              <h3 class="work-title"><span class="nobr">KBSホールアルバイト</span></h3>
+              <p class="work-summary">
+                京都の多目的ホール「KBSホール」にて、催事やコンサートにおけるステージ設営、機材・什器の搬入・転換・撤収作業に現在も従事しております。
+              </p>
+              <div class="work-task-tags">
+                <span class="work-task-tag">ステージ・照明設営</span>
+                <span class="work-task-tag">音響・機材搬入</span>
+                <span class="work-task-tag">転換・撤収作業</span>
+              </div>
+              <div class="work-footer">
+                <span>アルバイト (現在勤務中) / ステージ設営</span>
+                <span class="work-view-action">詳細を見る <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo">YUTA GOTANI</div>
+      <p class="footer-copy">&copy; 2026 Yuta Gotani. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="ページトップへスクロール">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- ==========================================
+       WORK DETAIL MODAL
+       ========================================== -->
+  <div class="modal-overlay" id="workModalOverlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal-container">
+      <button class="modal-close-btn" onclick="closeWorkModal()" aria-label="モーダルを閉じる">&times;</button>
+
+      <!-- Modal Game Banner Image -->
+      <div class="modal-image-wrapper" id="modalImageWrapper" style="display:none;">
+        <img src="" alt="" id="modalImage" class="modal-image">
+      </div>
+
+      <div class="modal-category" id="modalCategory">Category</div>
+      <h3 class="modal-title" id="modalTitle">Project Title</h3>
+
+      <div class="modal-description" id="modalDesc">
+      </div>
+
+      <div class="modal-meta-grid" id="modalMeta">
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT (Clean & Lightweight)
+       ========================================================================== -->
+  <script>
+    /* ==========================================
+       1. Scroll Header, Progress, & Back-to-Top
+       ========================================== */
+    const siteHeader = document.getElementById('siteHeader');
+    const progressBar = document.getElementById('progressBar');
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+      // Progress Bar
+      const scrollPercentage = (scrollPos / docHeight) * 100;
+      progressBar.style.width = `${scrollPercentage}%`;
+
+      // Header shadow
+      if (scrollPos > 30) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+
+      // Back to top button visibility
+      if (scrollPos > 350) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+
+      // Active Navigation Link on Scroll
+      let currentSectionId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 100;
+        const height = sec.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          currentSectionId = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ==========================================
+       2. Mobile Navigation Menu Toggle
+       ========================================== */
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navMenu.classList.remove('open');
+      });
+    });
+
+    /* ==========================================
+       3. Intersection Observer: Reveal & Skill Bars
+       ========================================== */
+    const revealElements = document.querySelectorAll('.reveal');
+    const skillBars = document.querySelectorAll('.skill-bar-fill');
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target;
+          bar.style.width = bar.getAttribute('data-progress');
+          observer.unobserve(bar);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    skillBars.forEach(bar => skillObserver.observe(bar));
+
+    /* ==========================================
+       4. Works Category Filter
+       ========================================== */
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const workCards = document.querySelectorAll('.work-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        workCards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          if (filterValue === 'all' || cardCat === filterValue) {
+            card.style.display = 'flex';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 30);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 200);
+          }
+        });
+      });
+    });
+
+    /* ==========================================
+       5. Works Detail Modal System & Data
+       ========================================== */
+    const workData = {
+      // --- ゲーム制作 ---
+      'game-traininja': {
+        category: 'ゲーム制作',
+        title: 'トレーニンジャ',
+        image: 'traininja.png',
+        containFit: true,
+        description: `忍者の修行をテーマにした、スライド・タップ操作で的を壊していき、高得点を目指すオリジナルゲーム作品です。
+`,
+        meta: [
+          { label: '開発環境', value: 'Unity / Visual Studio' },
+          { label: '使用言語', value: 'C#' },
+          { label: '担当', value: 'プログラマー' }
+        ]
+      },
+      'game-risolution': {
+        category: 'ゲーム制作',
+        title: 'RISOLUTION',
+        image: 'risolution.png',
+        containFit: false,
+        description: `物体の解像度を変え、迫りくる障害物を突破しゴールを目指すアクションパズルゲームです。
+`,
+        meta: [
+          { label: '開発環境', value: 'Unity / Visual Studio' },
+          { label: '使用言語', value: 'C#' },
+          { label: '担当', value: 'プログラマー' }
+        ]
+      },
+      'game-recoilflight': {
+        category: 'ゲーム制作',
+        title: 'リコイル フライト',
+        image: 'recoil_flight.png',
+        containFit: 'white',
+        description: `銃を撃った時の「反動（リコイル）」を逆手に取り、推進力にして空中を飛翔・移動する斬新なアクションゲームです。
+`,
+        meta: [
+          { label: '開発環境', value: 'Unity / Visual Studio' },
+          { label: '使用言語', value: 'C#' },
+          { label: '担当', value: 'プログラマー' }
+        ]
+      },
+
+      // --- イベント実績 ---
+      'event-bitsummit13': {
+        category: 'イベント実績',
+        title: 'BitSummit the 13th : ボランティアスタッフ',
+        description: `日本最大級のインディーゲームの祭典「BitSummit the 13th」にて、会場ボランティアスタッフとして運営をサポートしました。
+
+【担当業務】
+・来場者の受付・入場誘導、会場案内
+・出展ブース周辺の混雑緩和・動線確保`,
+        meta: [
+          { label: '役割', value: 'ボランティアスタッフ' },
+          { label: 'イベント規模', value: '国内外インディーゲーム展示会' },
+          { label: '主な担当', value: '受付・動線管理・来場者対応' }
+        ]
+      },
+      'event-expo-kyoto': {
+        category: 'イベント実績',
+        title: '大阪・関西万博 関西パビリオン 京都ゾーン : ボランティアスタッフ',
+        description: `大阪・関西万博の関西パビリオン内「京都ゾーン」にて、ボランティアスタッフとして参加しました。
+
+【担当業務】
+・京都ゾーン来場者への展示案内および順路誘導
+・展示ゲームの操作案内
+・多世代・国内外のゲストに対する丁寧なコミュニケーション`,
+        meta: [
+          { label: '役割', value: 'ボランティアスタッフ' },
+          { label: '催事名', value: '大阪・関西万博 関西パビリオン' },
+          { label: '主な担当', value: '展示ゲームの操作案内・来場者対応' }
+        ]
+      },
+      'event-kyoto-cci': {
+        category: 'イベント実績',
+        title: '京都商工会議所 2025-11/17 : 資料作成・プレゼンター',
+        description: `2025年11月17日、京都商工会議所における発表の場にて、プレゼンテーション資料作成および当日の登壇プレゼンターを担当しました。
+
+【担当業務】
+・発表テーマの骨子設計およびWordでの原稿・構成案作成
+・PowerPointを用いた見やすく説得力のあるスライドデザイン
+・登壇者（プレゼンター）としてのスピーチおよび質疑応答対応`,
+        meta: [
+          { label: '役割', value: '資料作成・プレゼンター' },
+          { label: '開催日', value: '2025年11月17日' },
+          { label: '使用ツール', value: 'Word / PowerPoint' }
+        ]
+      },
+      'event-eekanji': {
+        category: 'イベント実績',
+        title: 'EEKANJI NO GAME GAKKAI 2025 : ボランティアスタッフ',
+        description: `ゲーム開発者や研究者が登壇・発表を行う「ええ感じのゲーム学会 2025」にて、運営ボランティアスタッフとして従事しました。
+
+【担当業務】
+・会場内での巡回案内
+・会場設営`,
+        meta: [
+          { label: '役割', value: 'ボランティアスタッフ' },
+          { label: '年度', value: '2025年' },
+          { label: '主な担当', value: '会場内案内・会場設営' }
+        ]
+      },
+      'event-gamepavilion': {
+        category: 'イベント実績',
+        title: 'ゲームパビリオンjp 2026-03 : イベントスタッフ',
+        description: `2026年3月に開催されたインディーゲーム展示会「ゲームパビリオンjp」にてイベントスタッフを担当しました。
+
+【担当業務】
+・出展ブースの机・椅子・電源等の搬入・設営補助
+・試遊エリアの巡回、来場者の受付と列整理
+・出展クリエイターからの問い合わせ対応および本部連携`,
+        meta: [
+          { label: '役割', value: 'イベントスタッフ' },
+          { label: '開催期日', value: '2026年3月' },
+          { label: '主な担当', value: '会場設営・巡回列整理・出展者対応' }
+        ]
+      },
+      'event-kyoto-job': {
+        category: 'イベント実績',
+        title: '京都ジョブ博2026 eスポーツエリア : イベントスタッフ・リーダー',
+        description: `京都ジョブ博2026内のeスポーツエリアにて、現場スタッフのリーダーとしてエリア統括を担当しました。
+
+【担当業務】
+・eスポーツエリアスタッフの役割分担および当日のタスク指示出し
+・対戦ブースの設営
+・一般来場者や企業関係者への体験案内と安全管理`,
+        meta: [
+          { label: '役割', value: 'イベントスタッフ・リーダー' },
+          { label: '年度', value: '2026年' },
+          { label: '主な担当', value: 'チーム統括・エリア進行管理・指示出し' }
+        ]
+      },
+      'event-freshman': {
+        category: 'イベント実績',
+        title: '(学内) フレッシュマンデイキャンプ : イベントスタッフ',
+        description: `新入生を対象とした学内オリエンテーション行事「フレッシュマンデイキャンプ」にてスタッフとして運営を支援しました。
+
+【担当業務】
+・グループワークやレクリエーション企画の司会進行サポート
+・新入生同士が打ち解けられるような雰囲気づくりと個別フォロー
+・資料の準備および会場の後片付け`,
+        meta: [
+          { label: '役割', value: 'イベントスタッフ' },
+          { label: '区分', value: '学内研修行事' },
+          { label: '主な担当', value: '企画進行アシスト・新入生サポート' }
+        ]
+      },
+      'event-bitsummit14-ps': {
+        category: 'イベント実績',
+        title: 'BitSummit the 14th PSブース : ボランティアスタッフ',
+        description: `BitSummit the 14th のPlayStation（PS）ブースにて、ボランティアスタッフとして運営の中核を担いました。
+
+【担当業務】
+・PSブース出展作品の試遊待機列コントロールと整理券配布
+・試遊プレイヤーに対するコントローラー操作説明と時間管理
+・周辺通路の安全確保と来場者への声かけ`,
+        meta: [
+          { label: '役割', value: 'ボランティアスタッフ' },
+          { label: '担当エリア', value: 'PlayStationブース' },
+          { label: '主な担当', value: '試遊アテンド・待機列コントロール' }
+        ]
+      },
+      'event-summer-kyoto-job': {
+        category: 'イベント実績',
+        title: '夏の京都ジョブ博2026 eスポーツエリア : イベントスタッフ・リーダー',
+        description: `春の開催に続き、「夏の京都ジョブ博2026」eスポーツエリアにてリーダーを務めました。
+
+【担当業務】
+・前回の実績・反省を踏まえたスタッフ配置マニュアルの改善
+・交代要員のシフトマネジメントおよび当日の不測事態対応
+・エリア全体の盛り上がりを促進する体験ファシリテーション`,
+        meta: [
+          { label: '役割', value: 'イベントスタッフ・リーダー' },
+          { label: '開催期', value: '2026年 夏季' },
+          { label: '主な担当', value: 'スタッフ・シフト管理・運営改善' }
+        ]
+      },
+      'event-opengamefest': {
+        category: 'イベント実績',
+        title: 'OPEN GAME FEST 2026 : 作品展示・スタッフ',
+        description: `「OPEN GAME FEST 2026」にて、自身が制作したゲーム作品の出展を行うと同時に、イベント運営スタッフとしても活動しました。
+
+【担当業務】
+・自作ゲーム試遊ブースの出展、プレイヤーへのゲーム説明とヒアリング
+・フィードバックシートの回収およびプレイヤーの生の声の分析`,
+        meta: [
+          { label: '役割', value: '作品展示・スタッフ' },
+          { label: '年度', value: '2026年' },
+          { label: '主な担当', value: '自作ゲーム出展・プレイヤー対応' }
+        ]
+      },
+      'event-osaka-indie': {
+        category: 'イベント実績',
+        title: 'OSAKA INDIE GAMES SUMMIT 2026 : ボランティアスタッフ',
+        description: `大阪で開催されたインディーゲーム開発者のサミット「OSAKA INDIE GAMES SUMMIT 2026」にて、ボランティアスタッフとして運営を支援しました。
+
+【担当業務】
+・サミット会場の設営・撤収作業
+・担当ブースでの試遊対応
+・来場者対応`,
+        meta: [
+          { label: '役割', value: 'ボランティアスタッフ' },
+          { label: '年度', value: '2026年' },
+          { label: '主な担当', value: '会場設営・試遊対応・来場者対応' }
+        ]
+      },
+
+      // --- その他 ---
+      'other-eigamura': {
+        category: 'その他',
+        title: '太秦映画村アルバイト : イベント運営スタッフ',
+        description: `東映太秦映画村にて、イベント運営スタッフとして現在もアルバイトに従事しております。
+
+【担当業務】
+・園内イベントやアトラクションの運営および進行補助
+・来場者（ファミリー層・観光客等）へのご案内・接客対応
+・イベント実施エリアの安全確認および列整理`,
+        meta: [
+          { label: '区分 / 状況', value: 'アルバイト (現在勤務中)' },
+          { label: '勤務先', value: '東映太秦映画村' },
+          { label: '主な担当', value: 'イベント運営スタッフ / 接客・安全管理 / ショーオペレーター' }
+        ]
+      },
+      'other-kbshall': {
+        category: 'その他',
+        title: 'KBSホールアルバイト : ステージ設営',
+        description: `京都の多目的ホール「KBSホール」にて、催事やコンサートのステージ設営スタッフとして現在もアルバイトに従事しております。
+
+【担当業務】
+・舞台機材・音響照明機材等の搬入および設営補助
+・ステージ転換や備品・什器のセッティング
+・催事終了後の解体・撤収および会場原状復帰作業`,
+        meta: [
+          { label: '区分 / 状況', value: 'アルバイト (現在勤務中)' },
+          { label: '勤務先', value: 'KBSホール' },
+          { label: '主な担当', value: 'ステージ設営 / 機材搬入・搬出' }
+        ]
+      }
+    };
+
+    const modalOverlay = document.getElementById('workModalOverlay');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalMeta = document.getElementById('modalMeta');
+    const modalImageWrapper = document.getElementById('modalImageWrapper');
+    const modalImage = document.getElementById('modalImage');
+
+    function openWorkModal(id) {
+      const data = workData[id];
+      if (!data) return;
+
+      // Handle Image Banner
+      if (data.image) {
+        modalImage.src = data.image;
+        modalImage.alt = data.title;
+        modalImageWrapper.classList.remove('contain-fit', 'contain-fit-white');
+        if (data.containFit === 'white') {
+          modalImageWrapper.classList.add('contain-fit-white');
+        } else if (data.containFit) {
+          modalImageWrapper.classList.add('contain-fit');
+        }
+        modalImageWrapper.style.display = 'flex';
+      } else {
+        modalImageWrapper.style.display = 'none';
+      }
+
+      modalCategory.textContent = data.category;
+      modalTitle.textContent = data.title;
+      modalDesc.textContent = data.description;
+
+      modalMeta.innerHTML = data.meta.map(m => `
+        <div class="modal-meta-item">
+          <h5>${m.label}</h5>
+          <p>${m.value}</p>
+        </div>
+      `).join('');
+
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeWorkModal() {
+      modalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target === modalOverlay) {
+        closeWorkModal();
+      }
+    }
+
+    // ESC key closes modal
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+        closeWorkModal();
+      }
+    });
+
+
+  </script>
+</body>
+
+</html>
