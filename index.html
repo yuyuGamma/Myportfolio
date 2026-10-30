@@ -866,53 +866,43 @@
       font-family: var(--font-en);
     }
 
-    /* Rating Stars & Bar */
+    /* Skill Gauge Slider */
     .skill-rating-container {
-      margin-bottom: 1rem;
-    }
-
-    .stars-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.45rem;
-    }
-
-    .stars-display {
-      display: flex;
-      gap: 3px;
-      font-size: 1.15rem;
-    }
-
-    .star-filled {
-      color: var(--amber);
-    }
-
-    .star-empty {
-      color: #ded6cb;
-    }
-
-    .rating-score {
-      font-family: var(--font-en);
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--primary);
+      margin-bottom: 1.15rem;
     }
 
     .skill-bar-bg {
       width: 100%;
-      height: 6px;
-      background: var(--bg-card-subtle);
-      border-radius: 3px;
+      height: 11px;
+      background: #ebe3d6;
+      border: 1px solid #dfd5c6;
+      border-radius: 999px;
       overflow: hidden;
+      position: relative;
+      box-shadow: inset 0 1px 2px rgba(60, 42, 25, 0.06);
+    }
+
+    .skill-bar-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(
+        to right,
+        transparent calc(20% - 1.5px),
+        rgba(255, 255, 255, 0.75) calc(20% - 1.5px),
+        rgba(255, 255, 255, 0.75) 20%,
+        transparent 20%
+      );
+      background-size: 20% 100%;
+      pointer-events: none;
     }
 
     .skill-bar-fill {
       height: 100%;
-      border-radius: 3px;
-      background: var(--primary);
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--amber) 0%, var(--primary) 100%);
       width: 0%;
-      transition: width 1s ease-out;
+      transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .skill-card-desc {
@@ -1025,6 +1015,10 @@
       box-shadow: 0 10px 24px rgba(201, 92, 52, 0.22);
     }
 
+    .work-card[data-category="event"] .work-thumb-wrapper {
+      border-bottom: 1px solid #fae2d7;
+    }
+
     .work-card[data-category="event"] .work-header-box {
       background: #fdf5f0;
       border-bottom: 1px solid #fae2d7;
@@ -1118,26 +1112,32 @@
       background: linear-gradient(135deg, #fdf5f0 0%, #faede4 100%);
       border-color: #fae2d7;
     }
+
     .banner-theme-expo {
       background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
       border-color: #fed7aa;
     }
+
     .banner-theme-presentation {
       background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
       border-color: #fecaca;
     }
+
     .banner-theme-academic {
       background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
       border-color: #ddd6fe;
     }
+
     .banner-theme-esports {
       background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
       border-color: #bbf7d0;
     }
+
     .banner-theme-campus {
       background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
       border-color: #bfdbfe;
     }
+
     .banner-theme-work {
       background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
       border-color: #fde68a;
@@ -1846,7 +1846,7 @@
         </div>
 
         <div class="skills-grid">
-          <!-- Word (Ward) ★★★★☆ -->
+          <!-- Word (Ward) -->
           <div class="skill-card reveal">
             <div class="skill-card-header">
               <div class="skill-icon icon-word">
@@ -1865,16 +1865,6 @@
             </div>
 
             <div class="skill-rating-container">
-              <div class="stars-row">
-                <div class="stars-display" aria-label="評価: 5段階中4">
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-empty">★</span>
-                </div>
-                <span class="rating-score">4.0 / 5.0</span>
-              </div>
               <div class="skill-bar-bg">
                 <div class="skill-bar-fill" data-progress="80%"></div>
               </div>
@@ -1889,7 +1879,7 @@
             </div>
           </div>
 
-          <!-- Excel ★★★☆☆ -->
+          <!-- Excel -->
           <div class="skill-card reveal">
             <div class="skill-card-header">
               <div class="skill-icon icon-excel">
@@ -1909,16 +1899,6 @@
             </div>
 
             <div class="skill-rating-container">
-              <div class="stars-row">
-                <div class="stars-display" aria-label="評価: 5段階中3">
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-empty">★</span>
-                  <span class="star-empty">★</span>
-                </div>
-                <span class="rating-score">3.0 / 5.0</span>
-              </div>
               <div class="skill-bar-bg">
                 <div class="skill-bar-fill" data-progress="60%"></div>
               </div>
@@ -1934,7 +1914,7 @@
             </div>
           </div>
 
-          <!-- PowerPoint ★★★☆☆ -->
+          <!-- PowerPoint -->
           <div class="skill-card reveal">
             <div class="skill-card-header">
               <div class="skill-icon icon-powerpoint">
@@ -1952,16 +1932,6 @@
             </div>
 
             <div class="skill-rating-container">
-              <div class="stars-row">
-                <div class="stars-display" aria-label="評価: 5段階中3">
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-empty">★</span>
-                  <span class="star-empty">★</span>
-                </div>
-                <span class="rating-score">3.0 / 5.0</span>
-              </div>
               <div class="skill-bar-bg">
                 <div class="skill-bar-fill" data-progress="60%"></div>
               </div>
@@ -1993,16 +1963,6 @@
             </div>
 
             <div class="skill-rating-container">
-              <div class="stars-row">
-                <div class="stars-display" aria-label="評価: 5段階中3">
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-empty">★</span>
-                  <span class="star-empty">★</span>
-                </div>
-                <span class="rating-score">3.0 / 5.0</span>
-              </div>
               <div class="skill-bar-bg">
                 <div class="skill-bar-fill" data-progress="60%"></div>
               </div>
@@ -2018,7 +1978,7 @@
             </div>
           </div>
 
-          <!-- Event Operations & Leadership ★★★★☆ -->
+          <!-- Event Operations & Leadership -->
           <div class="skill-card reveal">
             <div class="skill-card-header">
               <div class="skill-icon icon-event">
@@ -2035,18 +1995,8 @@
             </div>
 
             <div class="skill-rating-container">
-              <div class="stars-row">
-                <div class="stars-display" aria-label="評価: 5段階中4">
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-empty">★</span>
-                </div>
-                <span class="rating-score">4.0 / 5.0</span>
-              </div>
               <div class="skill-bar-bg">
-                <div class="skill-bar-fill" data-progress="80%"></div>
+                <div class="skill-bar-fill" data-progress="100%"></div>
               </div>
             </div>
 
@@ -2060,7 +2010,7 @@
             </div>
           </div>
 
-          <!-- Communication & Hospitality ★★★★☆ -->
+          <!-- Communication & Hospitality -->
           <div class="skill-card reveal">
             <div class="skill-card-header">
               <div class="skill-icon icon-comm">
@@ -2076,16 +2026,6 @@
             </div>
 
             <div class="skill-rating-container">
-              <div class="stars-row">
-                <div class="stars-display" aria-label="評価: 5段階中4">
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-filled">★</span>
-                  <span class="star-empty">★</span>
-                </div>
-                <span class="rating-score">4.0 / 5.0</span>
-              </div>
               <div class="skill-bar-bg">
                 <div class="skill-bar-fill" data-progress="80%"></div>
               </div>
@@ -2226,15 +2166,11 @@
 
           <!-- Event 1: BitSummit the 13th -->
           <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-bitsummit13')">
-            <div class="work-event-banner banner-theme-indie">
-              <div class="event-banner-left">
-                <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c95c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                </div>
-                <span class="event-banner-year">2025.07</span>
-              </div>
+            <div class="work-thumb-wrapper">
+              <img src="bitsummit13.jpg" alt="BitSummit the 13th" class="work-thumb-img">
+            </div>
+            <div class="work-header-box">
+              <span class="work-cat-label">2025.07</span>
               <span class="role-badge badge-staff">ボランティアスタッフ</span>
             </div>
             <div class="work-body">
@@ -2262,10 +2198,13 @@
             <div class="work-event-banner banner-theme-expo">
               <div class="event-banner-left">
                 <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                    </path>
                   </svg>
                 </div>
                 <span class="event-banner-year">2025</span>
@@ -2298,7 +2237,8 @@
             <div class="work-event-banner banner-theme-presentation">
               <div class="event-banner-left">
                 <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
                     <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
                     <line x1="12" y1="19" x2="12" y2="23"></line>
@@ -2334,7 +2274,8 @@
             <div class="work-event-banner banner-theme-academic">
               <div class="event-banner-left">
                 <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                   </svg>
@@ -2369,7 +2310,8 @@
             <div class="work-event-banner banner-theme-indie">
               <div class="event-banner-left">
                 <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c95c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c95c34" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <rect x="2" y="6" width="20" height="12" rx="6"></rect>
                     <line x1="6" y1="12" x2="10" y2="12"></line>
                     <line x1="8" y1="10" x2="8" y2="14"></line>
@@ -2406,7 +2348,8 @@
             <div class="work-event-banner banner-theme-esports">
               <div class="event-banner-left">
                 <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <polygon points="6 9 12 15 18 9"></polygon>
                     <path d="M12 2v13"></path>
                     <path d="M5 20h14"></path>
@@ -2441,7 +2384,8 @@
             <div class="work-event-banner banner-theme-campus">
               <div class="event-banner-left">
                 <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                     <circle cx="9" cy="7" r="4"></circle>
                     <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -2474,17 +2418,11 @@
 
           <!-- Event 8: BitSummit the 14th PSブース -->
           <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-bitsummit14-ps')">
-            <div class="work-event-banner banner-theme-indie">
-              <div class="event-banner-left">
-                <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c95c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="6" width="20" height="12" rx="6"></rect>
-                    <line x1="6" y1="12" x2="10" y2="12"></line>
-                    <line x1="8" y1="10" x2="8" y2="14"></line>
-                  </svg>
-                </div>
-                <span class="event-banner-year">2026.07</span>
-              </div>
+            <div class="work-thumb-wrapper">
+              <img src="bitsummit14.jpg" alt="BitSummit the 14th PSブース" class="work-thumb-img">
+            </div>
+            <div class="work-header-box">
+              <span class="work-cat-label">2026.07</span>
               <span class="role-badge badge-staff">ボランティアスタッフ</span>
             </div>
             <div class="work-body">
@@ -2512,8 +2450,11 @@
             <div class="work-event-banner banner-theme-esports">
               <div class="event-banner-left">
                 <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                    </path>
                   </svg>
                 </div>
                 <span class="event-banner-year">2026 夏</span>
@@ -2545,7 +2486,8 @@
             <div class="work-event-banner banner-theme-campus">
               <div class="event-banner-left">
                 <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                     <line x1="8" y1="21" x2="16" y2="21"></line>
                     <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -2580,7 +2522,8 @@
             <div class="work-event-banner banner-theme-indie">
               <div class="event-banner-left">
                 <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c95c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c95c34" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <polygon points="12 8 8 12 12 16 16 12 12 8"></polygon>
                   </svg>
@@ -2619,7 +2562,8 @@
             <div class="work-event-banner banner-theme-work">
               <div class="event-banner-left">
                 <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                   </svg>
@@ -2653,8 +2597,11 @@
             <div class="work-event-banner banner-theme-work">
               <div class="event-banner-left">
                 <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                    </polygon>
                   </svg>
                 </div>
                 <span class="event-banner-year">現在勤務中</span>
@@ -2911,6 +2858,8 @@
       'event-bitsummit13': {
         category: 'イベント実績',
         title: 'BitSummit the 13th : ボランティアスタッフ',
+        image: 'bitsummit13.jpg',
+        containFit: false,
         description: `日本最大級のインディーゲームの祭典「BitSummit the 13th」にて、会場ボランティアスタッフとして運営をサポートしました。
 
 【担当業務】
@@ -3014,6 +2963,8 @@
       'event-bitsummit14-ps': {
         category: 'イベント実績',
         title: 'BitSummit the 14th PSブース : ボランティアスタッフ',
+        image: 'bitsummit14.jpg',
+        containFit: false,
         description: `BitSummit the 14th のPlayStation（PS）ブースにて、ボランティアスタッフとして運営の中核を担いました。
 
 【担当業務】
