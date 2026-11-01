@@ -886,13 +886,11 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(
-        to right,
-        transparent calc(20% - 1.5px),
-        rgba(255, 255, 255, 0.75) calc(20% - 1.5px),
-        rgba(255, 255, 255, 0.75) 20%,
-        transparent 20%
-      );
+      background-image: linear-gradient(to right,
+          transparent calc(20% - 1.5px),
+          rgba(255, 255, 255, 0.75) calc(20% - 1.5px),
+          rgba(255, 255, 255, 0.75) 20%,
+          transparent 20%);
       background-size: 20% 100%;
       pointer-events: none;
     }
@@ -2195,20 +2193,11 @@
 
           <!-- Event 2: 大阪・関西万博関西パビリオン京都ゾーン -->
           <div class="work-card reveal" data-category="event" onclick="openWorkModal('event-expo-kyoto')">
-            <div class="work-event-banner banner-theme-expo">
-              <div class="event-banner-left">
-                <div class="event-banner-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path
-                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                    </path>
-                  </svg>
-                </div>
-                <span class="event-banner-year">2025</span>
-              </div>
+            <div class="work-thumb-wrapper">
+              <img src="expo_kyoto.jpg" alt="大阪・関西万博 関西パビリオン 京都ゾーン" class="work-thumb-img">
+            </div>
+            <div class="work-header-box">
+              <span class="work-cat-label">2025</span>
               <span class="role-badge badge-staff">ボランティアスタッフ</span>
             </div>
             <div class="work-body">
@@ -2874,6 +2863,8 @@
       'event-expo-kyoto': {
         category: 'イベント実績',
         title: '大阪・関西万博 関西パビリオン 京都ゾーン : ボランティアスタッフ',
+        image: 'expo_kyoto.jpg',
+        containFit: false,
         description: `大阪・関西万博の関西パビリオン内「京都ゾーン」にて、ボランティアスタッフとして参加しました。
 
 【担当業務】
